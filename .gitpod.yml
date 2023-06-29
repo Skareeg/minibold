@@ -1,0 +1,15 @@
+# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
+tasks:
+  - name: Environment Dependencies Setup
+    init: sudo apt install -y g++ pkg-config libx11-dev libasound2-dev libudev-dev # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+  - name: Setup Wasm Target
+    init: rustup target add wasm32-unknown-unknown
+  - name: Setup Wasm CLI
+    init: cargo install wasm-bindgen-cli
+  - name: Setup Wasm Runner
+    init: cargo install wasm-server-runner
+  - name: Setup Custom WASM Alias
+    init: echo "alias wm='wasm-bindgen target/wasm32-unknown-unknown/release/minibold.wasm --out-dir wasm --no-modules --no-typescript'" >> ~/.bashrc
+vscode:
+  extensions:
+    - rust-lang.rust-analyzer
