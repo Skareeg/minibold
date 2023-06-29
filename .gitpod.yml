@@ -9,7 +9,7 @@ tasks:
   - name: Setup Wasm Runner
     init: cargo install wasm-server-runner
   - name: Setup Custom WASM Alias
-    init: echo "alias wm='wasm-bindgen target/wasm32-unknown-unknown/release/minibold.wasm --out-dir wasm --no-modules --no-typescript'" >> ~/.bashrc
+    init: echo "alias wm='wasm-bindgen target/wasm32-unknown-unknown/debug/minibold.wasm --out-dir wasm --no-modules --no-typescript'" >> ~/.bashrc
 vscode:
   extensions:
     - rust-lang.rust-analyzer
